@@ -1,0 +1,227 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>𝗥𝗔𝗬 𝗫 𝗦𝗘𝗟𝗟𝗘𝗥</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Login Page -->
+  <div class="login-container">
+    <h1>RAY MOD</h1>
+    <div class="login-box">
+      <input type="text" id="username" placeholder="Username">
+      <input type="password" id="password" placeholder="Password">
+      <button onclick="login()">Login</button>
+    </div>
+  </div>
+
+  <!-- Predictor Page -->
+  <div class="predictor-container hidden">
+    <header>
+      <div class="menu-icon" onclick="toggleDrawer()">☰</div>
+      <h2>𝗥𝗔𝗬 𝗫 𝗦𝗘𝗟𝗟𝗘𝗥</h2>
+    </header>
+    <marquee class="running-text">MADE BY 𝗥𝗔𝗬 𝗫 𝗦𝗘𝗟𝗟𝗘𝗥</marquee>
+
+    <div class="fade-boxes">
+      <div class="fade-box" id="prediction"> Big</div>
+      <div class="fade-box" id="timer">Time: 30</div>
+    </div>
+
+    <div class="spinner-container">
+      <select id="game-selector">
+        <option>51 GAME</option>
+        <option>BDG WIN</option>
+        <option>91 CLUB</option>
+        <option>GOA GAME</option>
+        <option>BIG KOLKATA</option>
+        <option>DM WIN</option>
+        <option>DIU WIN</option>
+        <option>SIKKIM</option>
+        <option>82 LOTTERY</option>
+        <option>TIRANGA</option>
+        <option>TC LOTTERY</option>
+        <option>IN999</option>
+        <option>BIG MUMBAI</option>
+        <option>BHARAT CLUB</option>
+      </select>
+    </div>
+
+    <div class="linear-animation" id="linear-timer"></div>
+  </div>
+
+  <!-- Drawer -->
+  <div class="drawer hidden" id="drawer">
+    <p>MADE BY 𝗥𝗔𝗬 𝗫 𝗦𝗘𝗟𝗟𝗘𝗥</p>
+    <a href="https://t.me/raymod0_07" target="_blank">Join Telegram Channel</a>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html><style>body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #121212;
+  color: #ffffff;
+}
+
+/* Login Page */
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.login-box {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+input {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+  width: 300px;
+}
+
+button {
+  padding: 10px;
+  font-size: 18px;
+  border: none;
+  background: linear-gradient(45deg, #ff7b00, #ff0000);
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
+/* Predictor Page */
+.hidden {
+  display: none;
+}
+
+.predictor-container {
+  padding: 20px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #333;
+  padding: 10px;
+}
+
+.menu-icon {
+  cursor: pointer;
+}
+
+.running-text {
+  font-size: 20px;
+  color: #ff0;
+}
+
+.fade-boxes {
+  display: flex;
+  gap: 20px;
+}
+
+.fade-box {
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  text-align: center;
+  width: 150px;
+}
+
+/* Spinner */
+.spinner-container {
+  margin: 20px 0;
+}
+
+select {
+  padding: 10px;
+  font-size: 16px;
+}
+
+/* Linear Timer */
+.linear-animation {
+  height: 5px;
+  background: linear-gradient(90deg, #ff0000, #ff7b00);
+  animation: progress 30s linear infinite;
+}
+
+@keyframes progress {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* Drawer */
+.drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 100%;
+  background: #222;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.drawer a {
+  color: #00f;
+  text-decoration: none;
+  margin-top: 20px;
+  display: block;
+}</style><script>function login() {
+  const username = document.getElementById('username').value;
+  const password = document.getElementById('password').value;
+
+  if (username === "RAY" && password === "MOD") {
+    document.querySelector('.login-container').classList.add('hidden');
+    document.querySelector('.predictor-container').classList.remove('hidden');
+  } else {
+    alert("Invalid username or password");
+  }
+}
+
+function toggleDrawer() {
+  const drawer = document.getElementById('drawer');
+  drawer.classList.toggle('hidden');
+}
+
+// Automatic Prediction
+let timer = 30;
+function updatePrediction() {
+  const prediction = Math.random() > 0.5 ? "Big" : "Small";
+  document.getElementById('prediction').innerText = `Prediction: ${prediction}`;
+}
+
+function updateTimer() {
+  const timerBox = document.getElementById('timer');
+  timerBox.innerText = `Time: ${timer}`;
+
+  if (timer === 0) {
+    timer = 30;
+    updatePrediction();
+  } else {
+    timer--;
+  }
+}
+
+setInterval(updateTimer, 1000);
+updatePrediction();</script>
